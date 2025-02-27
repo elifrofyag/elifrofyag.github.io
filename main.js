@@ -173,7 +173,12 @@ const app = {
     
     // to scroll page to active song
     scrollToActiveSong: function(){
-        
+        setTimeout(() => {
+            $('.song.active').scrollIntoView({ // see web api
+              behavior:'smooth',
+              block: 'center'
+            })
+          }, 200)
     },
 
     // to load current song's heading, cd and audio

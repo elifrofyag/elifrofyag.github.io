@@ -97,6 +97,10 @@
   .control .btn:hover {
     transform: scale(1.1);
   }
+  .control .btn:active{
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
   
   .control .btn.active {
     color: var(--primary-color);
@@ -163,6 +167,11 @@
   
   .song:active {
     opacity: 0.8;
+    transform: scale(1.05);
+  }
+  
+  .song:hover{
+    transform: scale(1.03);
   }
   
   .song.active .option,
@@ -207,17 +216,23 @@
     background-color: #f599b2;
   }
 
-  .footer_about {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin-top: 2px;
-  }
-
   .footer_text {
       font-size: 1.1rem;
       color: var(--white-color);
       letter-spacing: 3px;
+  }
+
+  .footer a {
+    text-decoration: none;
+    color: rgb(90, 87, 87);
+    font-weight: bold; 
+    display: inline-block;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .footer a:hover {
+      transform: scale(1.1);
+      opacity: 0.8;
   }
 
   
