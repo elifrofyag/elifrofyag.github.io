@@ -35,5 +35,11 @@ export default {
             image:
                 "https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_jpeg/cover/6/9/3/f/693f8f516bfaa717ef4043f11edfdde2.jpg"
         },
+        {
+            name: "Em không",
+            singer: "Vũ Thanh Vân",
+            image: "./assets/img/song5.jpg",
+            path: "./assets/songs/EmKhong.mp3"
+          },
     ]
 }
