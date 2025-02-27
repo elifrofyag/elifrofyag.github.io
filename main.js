@@ -25,20 +25,18 @@ const app = {
     render: function () {
         const htmls = this.songs.map((song, index) => {
             return `
-                <div class= "song-node">
-					<div class="song" data-index="${index}">
-						<div class="thumb"
-							style="background-image: url('${song.image}')">
-						</div>
-						<div class="body">
-							<h3 class="title">${song.name}</h3>
-							<p class="author">${song.singer}</p>
-						</div>
-						<div class="option">
-                            <i class="fas fa-ellipsis-h"></i>
-                        </div>
-					</div>
-                </div>    
+                <div class="song ${index === this.currentIndex ? "active" : ""}"data-index="${index}">
+                    <div class="thumb"
+                        style="background-image: url('${song.image}')">
+                    </div>
+                    <div class="body">
+                        <h3 class="title">${song.name}</h3>
+                        <p class="author">${song.singer}</p>
+                    </div>
+                    <div class="option">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </div>
+                </div>
 				`
         })
         playlist.innerHTML = htmls.join('')
@@ -122,6 +120,8 @@ const app = {
                 cdThumbAnimate.cancel(); // to restart cd rotation to 0deg
             }
             audio.play(); // since when next song is clicked, audio src is changed -> play() to start playing again
+            _this.render();
+            _this.scrollToActiveSong();
         }
 
          //handle when click next song button
@@ -133,6 +133,8 @@ const app = {
                 cdThumbAnimate.cancel();
             }
             audio.play(); 
+            _this.render();
+            _this.scrollToActiveSong();
         }
         
         // handle when audio is ended -> automatically changes to next(random)song
@@ -167,6 +169,11 @@ const app = {
             // _this.setConfig("isRandom", _this.isRandom);
             repeatBtn.classList.toggle("active", _this.isRepeat);
         }
+    },
+    
+    // to scroll page to active song
+    scrollToActiveSong: function(){
+        
     },
 
     // to load current song's heading, cd and audio
