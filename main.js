@@ -20,6 +20,7 @@ const app = {
     currentIndex: 0,
     isPlaying: false,
     isRandom: false,
+    isRepeat: false,
     songs: data.songs,
     render: function () {
         const htmls = this.songs.map((song, index) => {
@@ -118,6 +119,7 @@ const app = {
                 _this.playRandomSong();
             } else {
                 _this.nextSong();
+                cdThumbAnimate.cancel(); // to restart cd rotation to 0deg
             }
             audio.play(); // since when next song is clicked, audio src is changed -> play() to start playing again
         }
@@ -128,22 +130,28 @@ const app = {
                 _this.playRandomSong();
             } else {
                 _this.prevSong();
+                cdThumbAnimate.cancel();
             }
             audio.play(); 
         }
         
         // handle when audio is ended -> automatically changes to next(random)song
         audio.onended = function(){
-            //way 1
+            //way 1 
             // if (_this.isRandom){
             //     _this.playRandomSong();
             // } else {
             //     _this.nextSong();
             // }
             // audio.play();
-
-            //way 2: more efficient
-            nextBtn.click();
+            
+            if (_this.isRepeat){
+                audio.play();
+            } else {
+                //way 2: more efficient
+                nextBtn.click();
+            }
+            
         }
 
         // handling on / off random song status
@@ -152,7 +160,13 @@ const app = {
             // _this.setConfig("isRandom", _this.isRandom);
             randomBtn.classList.toggle("active", _this.isRandom);
         };
-        
+
+        // handle when repeat button is clicked
+        repeatBtn.onclick = function(e){
+            _this.isRepeat = !_this.isRepeat;
+            // _this.setConfig("isRandom", _this.isRandom);
+            repeatBtn.classList.toggle("active", _this.isRepeat);
+        }
     },
 
     // to load current song's heading, cd and audio
