@@ -19,6 +19,7 @@ const playlist = $('.playlist')
 const app = {
     currentIndex: 0,
     isPlaying: false,
+    isRandom: false,
     songs: data.songs,
     render: function () {
         const htmls = this.songs.map((song, index) => {
@@ -110,6 +111,43 @@ const app = {
             const landTime = (audio.duration) * (progress.value / 100)
             audio.currentTime = landTime;
         }
+
+        //handle when click next song button
+        nextBtn.onclick = function(){
+            if (_this.isRandom) { //check if random song status is on
+                _this.playRandomSong();
+            } else {
+                _this.nextSong();
+            }
+            audio.play(); // since when next song is clicked, audio src is changed -> play() to start playing again
+        }
+
+         //handle when click next song button
+        prevBtn.onclick = function(){
+            if (_this.isRandom) { //check if random song status is on
+                _this.playRandomSong();
+            } else {
+                _this.prevSong();
+            }
+            audio.play(); 
+        }
+        
+        // handle when audio is ended -> automatically changes to next(random)song
+        audio.onended = function(){
+            if (_this.isRandom){
+                _this.playRandomSong();
+            } else {
+                _this.nextSong();
+            }
+            audio.play();
+        }
+
+        // handling on / off random song status
+        randomBtn.onclick = function () {
+            _this.isRandom = !_this.isRandom;
+            // _this.setConfig("isRandom", _this.isRandom);
+            randomBtn.classList.toggle("active", _this.isRandom);
+        };
         
     },
 
@@ -118,6 +156,35 @@ const app = {
         heading.textContent = this.currentSong.name;
         cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
         audio.src = this.currentSong.path;
+    },
+
+    // to find and load next song
+    nextSong: function(){
+        this.currentIndex++;
+        if (this.currentIndex > this.songs.length - 1){
+            this.currentIndex = 0;
+        }
+        this.loadCurrentSong()
+    },
+
+    // to find and load previous song
+    prevSong: function(){
+        this.currentIndex--;
+        if (this.currentIndex < 0){
+            this.currentIndex = this.songs.length - 1;
+        }
+        this.loadCurrentSong()
+    },
+
+    // to play random song
+    playRandomSong: function () {
+        let newIndex;
+        do {
+          newIndex = Math.floor(Math.random() * this.songs.length);
+        } while (newIndex === this.currentIndex);
+    
+        this.currentIndex = newIndex;
+        this.loadCurrentSong();
     },
     
     start: function(){
