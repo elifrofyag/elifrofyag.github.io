@@ -134,12 +134,16 @@ const app = {
         
         // handle when audio is ended -> automatically changes to next(random)song
         audio.onended = function(){
-            if (_this.isRandom){
-                _this.playRandomSong();
-            } else {
-                _this.nextSong();
-            }
-            audio.play();
+            //way 1
+            // if (_this.isRandom){
+            //     _this.playRandomSong();
+            // } else {
+            //     _this.nextSong();
+            // }
+            // audio.play();
+
+            //way 2: more efficient
+            nextBtn.click();
         }
 
         // handling on / off random song status
