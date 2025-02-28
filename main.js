@@ -3,6 +3,8 @@ console.log(data);
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
+const PlAYER_STORAGE_KEY = "ANNs_PLAYER";
+
 const player = $('.player')
 const cd = $('.cd')
 const heading = $('header h2')
@@ -22,6 +24,16 @@ const app = {
     isRandom: false,
     isRepeat: false,
     songs: data.songs,
+    
+    // config storage to save all settings after refresh/restart
+    config: JSON.parse(localStorage.getItem(PlAYER_STORAGE_KEY)) || {},
+    
+    // set config
+    setConfig: function (key, value) {
+        this.config[key] = value;
+        localStorage.setItem(PlAYER_STORAGE_KEY, JSON.stringify(this.config));
+      },
+    
     render: function () {
         const htmls = this.songs.map((song, index) => {
             return `
@@ -44,9 +56,9 @@ const app = {
     //define a property called currentSong for object 'app'
     defineProperties: function () {
         Object.defineProperty(this, "currentSong", { //see doc for more info for defineProperty()
-          get: function () {
+        get: function () {
             return this.songs[this.currentIndex]; //use currentIndex to update currentSong
-          }
+        }
         });
     },
 
@@ -159,18 +171,19 @@ const app = {
         // handling on / off random song status
         randomBtn.onclick = function () {
             _this.isRandom = !_this.isRandom;
-            // _this.setConfig("isRandom", _this.isRandom);
+            _this.setConfig("isRandom", _this.isRandom);
+            // how toggle works:_this.isRepeat === true → "active" class is added, else false -> remove
             randomBtn.classList.toggle("active", _this.isRandom);
         };
 
         // handle when repeat button is clicked
         repeatBtn.onclick = function(e){
             _this.isRepeat = !_this.isRepeat;
-            // _this.setConfig("isRandom", _this.isRandom);
+            _this.setConfig("isRepeat", _this.isRepeat);
             repeatBtn.classList.toggle("active", _this.isRepeat);
         }
 
-        // Listen to playlist clicks
+        // listen to playlist clicks
         playlist.onclick = function (e) {
             // to get song when clicking on any elements that belong to that song section
             const songNode = e.target.closest(".song:not(.active)"); //see more on closest()
@@ -207,6 +220,13 @@ const app = {
         heading.textContent = this.currentSong.name;
         cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
         audio.src = this.currentSong.path;
+        this.setConfig("currentIndex", this.currentIndex)
+    },
+    // to load config saved from last time or before page refresed
+    loadConfig: function () {
+        this.isRandom = this.config.isRandom;
+        this.isRepeat = this.config.isRepeat;
+        this.currentIndex = this.config.currentIndex
     },
 
     // to find and load next song
@@ -240,7 +260,8 @@ const app = {
     
     start: function(){
         // assign configuration from config to application
-        //this.loadConfig();
+        this.loadConfig();
+
         // defines properties for the object
         this.defineProperties();
 
@@ -254,8 +275,8 @@ const app = {
         this.render();
 
         // Display the initial state of the repeat & random button from the last time
-        randomBtn.classList.toggle("active", this.isRandom);
-        repeatBtn.classList.toggle("active", this.isRepeat);
+        // randomBtn.classList.toggle("active", this.isRandom);
+        // repeatBtn.classList.toggle("active", this.isRepeat);
     }
 }
 
