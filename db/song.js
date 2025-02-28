@@ -31,10 +31,22 @@ export default {
             image:"https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_jpeg/cover/6/9/3/f/693f8f516bfaa717ef4043f11edfdde2.jpg"
         },
         {
-            name: "Em không",
+            name: "Em Không",
             singer: "Vũ Thanh Vân",
             image: "assets/img/song5.jpg",
             path: "assets/song/EmKhong.mp3"
+        },
+        {
+            name: "bad idea",
+            singer: "girl in red",
+            image: "https://i.scdn.co/image/ab67616d00001e0256446861fdfba8294f605f63",
+            path: "assets/song/badidea.mp3"
+        },
+        {
+            name: "messy",
+            singer: "Lola Young",
+            image: "https://upload.wikimedia.org/wikipedia/en/3/3e/Lola_Young_-_Messy.png",
+            path: "assets/song/messy.mp3"
         },
     ]
 }

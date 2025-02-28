@@ -11,7 +11,7 @@
   
   body {
     background-color: #bcbce3;
-  }
+  } 
   
   html {
     box-sizing: border-box;
@@ -38,7 +38,7 @@
   
   .dashboard {
     padding: 16px 16px 14px;
-    background-color: #5f7caf;
+    background-color: #6183bd;
     position: fixed;
     top: 0;
     width: 100%;
@@ -158,7 +158,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 12px;
-    background-color: #7596cf;
+    background-color: #84a4db;
     padding: 8px 16px;
     border-radius: 5px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
@@ -209,7 +209,7 @@
   
   .song .option {
     padding: 16px 8px;
-    color: #99a2b4;
+    color: #7d8491;
     font-size: 18px;
   }
 
@@ -217,23 +217,23 @@
   .footer {
     text-align: center;
     padding: 24px 0;
-    background-color: #7f88e6;
+    background-color: #6183bd;
     width: 100%;
     max-width: 550px;
     border-radius:5px 5px 0px 0px;
-    border-top: 3px solid #5f7caf;
+    border-top: 3px solid #7f88e6;
   }
 
   .footer_text {
       font-size: 1.1rem;
       color: var(--white-color);
-      letter-spacing: 3px;
+      letter-spacing: 2px;
   }
 
   .footer a { 
     text-decoration: none;
-    color: rgb(90, 87, 87);
-    font-weight: bold; 
+    color: #bcbce3;
+    /* font-weight: bold;  */
     display: inline-block;
     transition: transform 0.2s ease-in-out;
   }

@@ -275,8 +275,8 @@ const app = {
         this.render();
 
         // Display the initial state of the repeat & random button from the last time
-        // randomBtn.classList.toggle("active", this.isRandom);
-        // repeatBtn.classList.toggle("active", this.isRepeat);
+        randomBtn.classList.toggle("active", this.isRandom);
+        repeatBtn.classList.toggle("active", this.isRepeat);
     }
 }
 
