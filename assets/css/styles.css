@@ -1,5 +1,5 @@
 :root {
-    --primary-color: #ec1f55;
+    --primary-color: #3553d8;
     --text-color: #333;
   }
   
@@ -10,7 +10,7 @@
   }
   
   body {
-    background-color: #f5f5f5;
+    background-color: #bcbce3;
   }
   
   html {
@@ -38,12 +38,12 @@
   
   .dashboard {
     padding: 16px 16px 14px;
-    background-color: #fff;
+    background-color: #5f7caf;
     position: fixed;
     top: 0;
     width: 100%;
     max-width: 480px;
-    border-bottom: 1px solid #ebebeb;
+    border-bottom: 3px solid #7f88e6;
     border-radius: 0px 0px 5px 5px;
   }
   
@@ -77,6 +77,7 @@
     background-color: #333;
     background-size: cover;
     margin: auto;
+    border: 3px solid #7f88e6
   }
   
   /* CONTROL */
@@ -92,7 +93,7 @@
     padding: 18px;
     font-size: 18px;
     cursor: pointer;
-    transition-duration: 0.2s;
+    transition-duration: 0.1s;
   }
 
   .control .btn:hover {
@@ -100,7 +101,8 @@
   }
   .control .btn:active{
     opacity: 0.8;
-    transform: scale(1.1);
+    transform: scale(1.2);
+    color:#3553d8
   }
   
   .control .btn.active {
@@ -128,7 +130,7 @@
     opacity: 0.7;
     -webkit-transition: 0.2s;
     transition: opacity 0.2s;
-    border-radius: 15px;
+    border-radius: 15px; 
   }
   
   .progress::-webkit-slider-thumb {
@@ -156,7 +158,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 12px;
-    background-color: #fff;
+    background-color: #7596cf;
     padding: 8px 16px;
     border-radius: 5px;
     box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
@@ -173,6 +175,7 @@
   
   .song:hover{
     transform: scale(1.03);
+    cursor: pointer;
   }
   
   .song.active .option,
@@ -201,12 +204,12 @@
   
   .song .author {
     font-size: 12px;
-    color: #999;
+    color: #c0d0eb;
   }
   
   .song .option {
     padding: 16px 8px;
-    color: #999;
+    color: #99a2b4;
     font-size: 18px;
   }
 
@@ -214,10 +217,11 @@
   .footer {
     text-align: center;
     padding: 24px 0;
-    background-color: #f599b2;
+    background-color: #7f88e6;
     width: 100%;
     max-width: 480px;
     border-radius:5px 5px 0px 0px;
+    border-top: 3px solid #5f7caf;
   }
 
   .footer_text {
