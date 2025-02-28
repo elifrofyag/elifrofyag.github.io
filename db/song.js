@@ -19,16 +19,10 @@ export default {
             image:"https://i.scdn.co/image/ab67616d0000b2739a8e56dae6cb6494663d00b8"
         },
         {
-            name: "Lần Hẹn Hò Đầu Tiên",
-            singer: "Huyền Tâm Môn",
-            path: "assets/song/LanHenHoDauTien.mp3",
-            image:"https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_jpeg/cover/7/e/9/4/7e94b95743998a108ff33beed5bae5c3.jpg"
-        },
-        {
-            name: "Lệ Lưu Ly",
-            singer: "Vũ Phụng Tiên & DT",
-            path: "assets/song/LeLuuLy.mp3",
-            image:"https://photo-resize-zmp3.zmdcdn.me/w94_r1x1_jpeg/cover/6/9/3/f/693f8f516bfaa717ef4043f11edfdde2.jpg"
+            name: "Tú",
+            singer: "maye",
+            image: "https://i.scdn.co/image/ab67616d0000b273e535e8147235d96bb734ba41",
+            path: "assets/song/Tu.mp3"
         },
         {
             name: "Em Không",
@@ -48,5 +42,13 @@ export default {
             image: "https://upload.wikimedia.org/wikipedia/en/3/3e/Lola_Young_-_Messy.png",
             path: "assets/song/messy.mp3"
         },
+        {
+            name: "i met sarah in the bathroom",
+            singer: "awfultune",
+            image: " https://i.scdn.co/image/ab67616d0000b273fa4e1f8c467711047cb604eb",
+            path: "assets/song/imetsarahinthebathroom.mp3"
+        },
+
+       
     ]
 }
