@@ -20,7 +20,7 @@
   
   .player {
     position: relative;
-    max-width: 480px;
+    max-width: 550px;
     margin: 0 auto;
   }
   
@@ -42,7 +42,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    max-width: 480px;
+    max-width: 550px;
     border-bottom: 3px solid #7f88e6;
     border-radius: 0px 0px 5px 5px;
   }
@@ -219,7 +219,7 @@
     padding: 24px 0;
     background-color: #7f88e6;
     width: 100%;
-    max-width: 480px;
+    max-width: 550px;
     border-radius:5px 5px 0px 0px;
     border-top: 3px solid #5f7caf;
   }
