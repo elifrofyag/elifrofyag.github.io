@@ -45,7 +45,7 @@ const app = {
     defineProperties: function () {
         Object.defineProperty(this, "currentSong", { //see doc for more info for defineProperty()
           get: function () {
-            return this.songs[this.currentIndex];
+            return this.songs[this.currentIndex]; //use currentIndex to update currentSong
           }
         });
     },
@@ -169,6 +169,27 @@ const app = {
             // _this.setConfig("isRandom", _this.isRandom);
             repeatBtn.classList.toggle("active", _this.isRepeat);
         }
+
+        // Listen to playlist clicks
+        playlist.onclick = function (e) {
+            // to get song when clicking on any elements that belong to that song section
+            const songNode = e.target.closest(".song:not(.active)"); //see more on closest()
+            console.log(songNode);
+            if (songNode || e.target.closest(".option")) {
+                // Handle when clicking onto the song
+                if (songNode) {
+                    _this.currentIndex = Number(songNode.dataset.index); // another way to write getAttribute('data-index') since data-index is associated w dataset
+                    _this.loadCurrentSong();
+                    _this.render();
+                    audio.play();
+                }
+        
+                // Xử lý khi click vào song option
+                // Handle when clicking on the song option
+                if (e.target.closest(".option")) {
+                }
+            }
+        }
     },
     
     // to scroll page to active song
@@ -231,6 +252,10 @@ const app = {
 
         // render playlist
         this.render();
+
+        // Display the initial state of the repeat & random button from the last time
+        randomBtn.classList.toggle("active", this.isRandom);
+        repeatBtn.classList.toggle("active", this.isRepeat);
     }
 }
 
