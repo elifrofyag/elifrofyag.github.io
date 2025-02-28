@@ -37,9 +37,9 @@ export default {
             path: "assets/song/EmKhong.mp3"
         },
         {
-            name: "bad idea",
+            name: "bad idea!",
             singer: "girl in red",
-            image: "https://i.scdn.co/image/ab67616d00001e0256446861fdfba8294f605f63",
+            image: "https://images.genius.com/0eb347551c9744679dbf6e55eec0dd10.1000x1000x1.png",
             path: "assets/song/badidea.mp3"
         },
         {
